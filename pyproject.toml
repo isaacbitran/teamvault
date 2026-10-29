@@ -1,0 +1,32 @@
+[project]
+name = "teamvault"
+version = "0.3.0"
+description = "A self-hosted shared memory for AI agents: one Markdown vault that Claude Code, Codex and any MCP client read and write, with a librarian that reviews every write."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Isaac Bitran" }]
+requires-python = ">=3.12"
+keywords = ["mcp", "memory", "ai-agents", "claude-code", "codex", "knowledge-base"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: POSIX",
+]
+dependencies = [
+    "mcp[cli]>=2.3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/isaacbitran/teamvault"
+Repository = "https://github.com/isaacbitran/teamvault"
+
+[project.scripts]
+teamvault = "teamvault:main"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"

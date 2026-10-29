@@ -1,0 +1,10 @@
+# Nightly git bundle of the vault, keeps the newest 30. Adjust the vault path if you changed
+# TEAMVAULT_DATA or TEAMVAULT_TEAM (the vault is <data>/tenants/<team>/vault).
+[Unit]
+Description=teamvault nightly git bundle
+
+[Service]
+Type=oneshot
+User=teamvault
+Group=teamvault
+ExecStart=/bin/sh -c 'd=/var/lib/teamvault/backups; mkdir -p $d && git -C /var/lib/teamvault/data/tenants/default/vault bundle create $d/$(date +%%F).bundle --all && ls -1t $d/*.bundle | tail -n +31 | xargs -r rm -f'

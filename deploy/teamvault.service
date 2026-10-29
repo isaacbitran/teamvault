@@ -1,0 +1,26 @@
+# Example systemd unit. Assumes: a `teamvault` system user with home /var/lib/teamvault, the repo checked out at
+# /opt/teamvault with `uv sync` run, and settings in /etc/teamvault/env (see .env.example; mode 640).
+[Unit]
+Description=teamvault shared memory (MCP server + librarian)
+After=network-online.target
+
+[Service]
+User=teamvault
+Group=teamvault
+WorkingDirectory=/opt/teamvault
+EnvironmentFile=/etc/teamvault/env
+ExecStart=/opt/teamvault/.venv/bin/teamvault serve
+Restart=always
+RestartSec=3
+KillMode=mixed
+TimeoutStopSec=20
+MemoryMax=1500M
+TasksMax=128
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/var/lib/teamvault
+
+[Install]
+WantedBy=multi-user.target

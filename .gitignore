@@ -1,0 +1,12 @@
+.venv/
+data/
+teamvault-demo/
+teamvault.env
+__pycache__/
+*.pyc
+.pytest_cache/
+dist/
+.env
+.env.*
+!.env.example
+*.log

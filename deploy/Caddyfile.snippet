@@ -1,0 +1,10 @@
+# Example Caddy site block: HTTPS in front of teamvault on the same machine.
+# Replace vault.example.com with your domain and set TEAMVAULT_PUBLIC_URL=https://vault.example.com.
+vault.example.com {
+	request_body {
+		max_size 5MB
+	}
+	reverse_proxy 127.0.0.1:8790 {
+		flush_interval -1
+	}
+}

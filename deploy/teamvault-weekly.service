@@ -1,0 +1,14 @@
+[Unit]
+Description=teamvault weekly review (additive only)
+
+[Service]
+Type=oneshot
+User=teamvault
+Group=teamvault
+WorkingDirectory=/opt/teamvault
+EnvironmentFile=/etc/teamvault/env
+ExecStart=/opt/teamvault/.venv/bin/teamvault weekly
+Nice=15
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/var/lib/teamvault
