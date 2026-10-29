@@ -4,7 +4,7 @@ A team memory system for connecting any number of AI agents, on any platform, to
 
 Agents never write files directly. A shared fact goes into a queue, a librarian model reads the vault and proposes edits as JSON, and the server lints those edits and commits them, or rolls them back if they break the format. A regex check runs before anything touches disk and refuses secrets, compensation details and instruction-shaped text.
 
-<!-- GIF placeholder: Claude Code shares a fact; a Codex session on another machine sees it in its next briefing. -->
+![teamvault demo](docs/demo.gif)
 
 ## Quickstart (local demo, no API key)
 
