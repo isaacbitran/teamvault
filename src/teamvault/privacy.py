@@ -13,7 +13,7 @@ _SELF = r"(my|me|mine|our|ours|founders?|co-?founders?|teammates?)"
 _COMP = (r"\b(equity|stake|vest\w*|cliff|cap ?table|salar\w*|compensation|paycheck|walk[- ]away|ownership|"
          r"sweat equity|\d+(\.\d+)?\s?%\s*(of (the )?(company|startup|business)|equity|stake|ownership))\b")
 SECRET = re.compile(
-    r"(sk-[A-Za-z0-9_-]{16,}|ghp_[A-Za-z0-9]{20,}|xox[abp]-[A-Za-z0-9-]{10,}|tv_[A-Za-z0-9_-]{20,}|"
+    r"(sk-[A-Za-z0-9_-]{16,}|[sr]k_(live|test)_[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{20,}|xox[abp]-[A-Za-z0-9-]{10,}|tv_[A-Za-z0-9_-]{20,}|"
     r"AKIA[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY|\b(password|passwd|api[_ ]?key|secret)\s*[:=])", re.I)
 INSTRUCTION = re.compile(
     r"\b(ignore (all |any |the |your )?(previous|prior|above)|disregard (all|your|the)|from now on|"

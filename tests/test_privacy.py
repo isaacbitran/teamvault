@@ -20,6 +20,8 @@ def test_other_companies_finance_goes_to_librarian():
 def test_secrets_are_withheld():
     assert check("the staging password: hunter2") == "withhold"
     assert check("key is sk-" + "a" * 30) == "withhold"
+    assert check("stripe key sk_live_" + "a" * 24) == "withhold"
+    assert check("restricted rk_test_" + "a" * 24) == "withhold"
     assert check("AKIA" + "ABCDEFGHIJKLMNOP") == "withhold"
 
 
