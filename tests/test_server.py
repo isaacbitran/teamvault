@@ -57,7 +57,11 @@ def test_share_is_filed_and_private_parts_withheld(demo_server):
         time.sleep(0.5)
     text = (vault / "areas/unsorted.md").read_text()
     assert "April 2" in text and "@maya" in text and "equity" not in text
-    _, out = run(url, tok["theo"], "team_recent", {"since": "1 hours ago"})
+    for _ in range(20):    # the file lands before the librarian's commit; wait for the commit
+        _, out = run(url, tok["theo"], "team_recent", {"since": "1 hours ago"})
+        if "April 2" in out:
+            break
+        time.sleep(0.5)
     assert "April 2" in out
 
 
