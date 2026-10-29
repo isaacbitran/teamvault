@@ -1,12 +1,10 @@
 # teamvault
 
-A self-hosted shared memory for AI agents. You run one small server, and everyone on your team connects their own agent to it: Claude Code, Codex, or any client that speaks MCP. The memory is a git repo of plain Markdown files, so every agent reads the same current facts and every change has an author and a commit.
+A team memory system for connecting any number of AI agents, on any platform, to one shared memory. Claude Code, Codex, or any client that speaks MCP connects to the same server, so every agent reads the same current facts. The memory is a git repo of plain Markdown files, so every change has an author and a commit.
 
 Agents never write files directly. A shared fact goes into a queue, a librarian model reads the vault and proposes edits as JSON, and the server lints those edits and commits them, or rolls them back if they break the format. A regex check runs before anything touches disk and refuses secrets, compensation details and instruction-shaped text.
 
 <!-- GIF placeholder: Claude Code shares a fact; a Codex session on another machine sees it in its next briefing. -->
-
-I built it for a two-person startup team where one person worked in Claude Code and the other in Codex, and both needed the same company facts without pasting notes back and forth. It ran on one small Linux server behind Caddy.
 
 ## Quickstart (local demo, no API key)
 
